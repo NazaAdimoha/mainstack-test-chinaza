@@ -16,17 +16,19 @@ const Navbar = () => {
           </Link>
 
           {/* mid nav items */}
-          {navData.map((item, index) => (
-            <div className="rounded-full mx-4" style={{ backgroundColor: `${item.bgColor}`, color: `${item.color}`, padding: "8px 18px 8px 14px" }} key={index}>
-              <Link
-                className="hidden md:flex md:items-center md:justify-center h-full"
-                href={item.href}
-              >
-                <Image src={item.img} alt="logo" width={25} height={25} />
-                <p className="ml-2">{item.title}</p>
-              </Link>
-            </div>
-          ))}
+          <div className="hidden md:inline-flex md:justify-center md:items-center gap-1">
+            {navData.map((item, index) => (
+                <div className="rounded-full hover:bg-gray-200" style={{ backgroundColor: `${item.bgColor}`, color: `${item.color}`, padding: "8px 18px 8px 14px" }} key={index}>
+                <Link
+                    className="hidden md:inline-flex md:items-center md:justify-center gap-1"
+                    href={item.href}
+                >
+                    <Image src={item.img} alt="logo" width={25} height={25} />
+                    <p className="ml-2">{item.title}</p>
+                </Link>
+                </div>
+            ))}
+          </div>
 
           {/* Mobile hambugger */}
           <div className="md:flex items-center justify-center h-full gap-8">
@@ -37,8 +39,8 @@ const Navbar = () => {
                 <Image src={Chat} alt="logo" width={25} height={25} />
             </Link>
             
-            <button className="focus:outline-none flex justify-center items-center bg-gray-400 px-2 rounded-full py-2 gap-4">
-            <p className="bg-gray-600 w-8 h-8 flex justify-center items-center text-color text-center text-sm font-semibold rounded-full">OJ</p>
+            <button className="focus:outline-none flex justify-center items-center bg-gray-200 px-2 rounded-full py-2 gap-4">
+            <p className="bg-gray-600 w-8 h-8 flex justify-center items-center text-white text-center text-sm font-semibold rounded-full">OJ</p>
               <Image src={Menu} alt="logo" width={25} height={25} />
             </button>
           </div>

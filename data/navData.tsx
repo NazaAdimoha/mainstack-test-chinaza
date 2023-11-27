@@ -9,6 +9,7 @@ export interface NavData {
   img: any;
   bgColor?: string;
   color?: string;
+  hover?: string;
 }
 
 export const navData: NavData[] = [
