@@ -1,20 +1,17 @@
-
-
-import LineChart from "../Chart"
-import Balance from "./Balance"
+import LineChart from "../Chart";
+import Balance from "./Balance";
 
 export const HeroLayout = () => {
-    return (
-        
-            <div className="pt-4 flex flex-col md:flex-row md:justify-between md:gap-4 ">
-                <div className="max-w-3xl max-h-64">
-                    <LineChart />
-                </div>
+  return (
+    <section className="pt-4 md:pt-8 sm:px-10 md:px-16 md:flex flex-col md:flex-row md:justify-evenly md:gap-2 lg:gap-4">
+      <div>hello</div>
+      <div>
+        <LineChart />
+      </div>
 
-                <div>
-                    <Balance />
-                </div>
-            </div>
-        
-    )
-}
+      <div>
+        <Balance />
+      </div>
+    </section>
+  );
+};
