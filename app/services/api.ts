@@ -48,4 +48,4 @@ export const getTransactions = async () => {
     } catch (error) {
         console.error(error);   
     }
-  }
+}
