@@ -1,8 +1,25 @@
 
 import axios from "axios";
 
+class Transaction {
+    amount: any;
+    metadata: any;
+    paymentReference: any;
+    status: any;
+    type: any;
+    date: any;
+    constructor(data: { amount: any; metadata: {}; payment_reference: any; status: any; type: any; date: any; }) {
+      this.amount = data.amount;
+      this.metadata = data.metadata || {};
+      this.paymentReference = data.payment_reference;
+      this.status = data.status;
+      this.type = data.type;
+      this.date = data.date ? new Date(data.date) : null;
+    }
+  }
+
 //create API services
-const API_BASE_URL = "https://assignment-api-spxd.onrender.com/api/";
+const API_BASE_URL = "https://fe-task-api.mainstack.io/";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -25,18 +42,10 @@ export const getWallet = async () => {
 
 //Get transactions endpoint
 export const getTransactions = async () => {
-    const response = await api.get("transactions");
-    return response.data;
-}
-
-//Filter transactions by date
-export const filterTransactions = async (date: string | number) => {
-    const response = await api.get(`transactions?date=${date}`);
-    return response.data;
-}
-
-//Filter transactions by transaction type
-export const filterTransactionsByType = async (type: string) => {
-    const response = await api.get(`transactions?type=${type}`);
-    return response.data;
-}
+    try {
+      const response = await api.get("transactions");
+      return response.data.map((transactionData: any) => new Transaction(transactionData));
+    } catch (error) {
+        console.error(error);   
+    }
+  }

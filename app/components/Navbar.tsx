@@ -9,7 +9,7 @@ import { navData } from "@/data/navData";
 const Navbar = () => {
   return (
     <nav className="bg-white shadow-xl z-[100] w-full h-16 rounded-full">
-      <div className="container px-4 py-2 mx-auto">
+      <div className="container px-2 py-2 mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/">
             <Image src={Logo} alt="logo" width={25} height={25} />
@@ -40,7 +40,7 @@ const Navbar = () => {
             </Link>
             
             <button className="focus:outline-none flex justify-center items-center bg-gray-200 px-2 rounded-full py-2 gap-4">
-            <p className="bg-gray-600 w-8 h-8 flex justify-center items-center text-white text-center text-sm font-semibold rounded-full">OJ</p>
+            <p className="bg-gray-800 w-8 h-8 flex justify-center items-center text-white text-center text-sm font-semibold rounded-full">OJ</p>
               <Image src={Menu} alt="logo" width={25} height={25} />
             </button>
           </div>
