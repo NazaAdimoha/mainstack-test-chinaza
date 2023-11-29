@@ -100,22 +100,23 @@ const LineChart = () => {
 
   return (
     <section >
-      <div className="flex justify-start items-center gap-8">
-        <div className="flex flex-col items-center justify-center gap-2">
-          <p>Available Balance</p>
-          <p>USD 120,500.00</p>
+      <div className="flex justify-start items-center gap-6 lg:gap-12 mb-7">
+        <div className="flex flex-col items-start justify-center gap-2">
+          <p className="text-start text-[#56616B] text-sm font-medium">Available Balance</p>
+          <p className="text-start text-[#131316] text-3xl not-italic font-bold">USD 120,500.00</p>
         </div>
-        <button>Withdraw</button>
+        <button className="flex justify-center items-center py-3.5 px-7 text-sm not-italic font-semibold leading-4 gap-2 self-stretch rounded-3xl bg-[#131316] text-white">Withdraw</button>
       </div>
       <div
         style={{
-          width: "765px",
+          width: "650px",
           height: "auto",
-          margin: "0 auto",
+          marginTop: "4rem",
+          margin: "auto", 
         }}
-        className="md:max-w-2xl md:max-h-58  lg:max-w-3xl lg:max-h-64"
+        className="max-w-md md:max-w-lg md:max-h-58  lg:max-w-2xl xl:max-w-5xl 2xl:max-w-8xl lg:max-h-64"
       >
-        <canvas ref={chartRef} />;
+        <canvas ref={chartRef} />
       </div>
     </section>
   );
