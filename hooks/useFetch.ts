@@ -19,17 +19,14 @@ export const useFetchUser = (isLoading: any, data: any, isError: any, error: any
     });
 }
 
-export const useFetchWallet = (isLoading: any, data: any, isError: any, error: any) => {
+export const useFetchWallet = ( data: any, error: any) => {
     return useQuery("wallet", getWallet, {
         enabled: false,
         refetchOnWindowFocus: false,
         onSuccess: (data) => {
-            isLoading = false;
             data = data;
         },
         onError: (error) => {
-            isLoading = false;
-            isError = true;
             error = error;
         },
     });
@@ -50,3 +47,6 @@ export const useFetchTransactions = (isLoading: any, data: any, isError: any, er
         },
     });
 };
+
+// {wallet?.ledger_balance}
+// {wallet?.total_payout}

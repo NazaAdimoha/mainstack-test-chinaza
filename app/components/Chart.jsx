@@ -105,7 +105,7 @@ const LineChart = () => {
           <p className="text-start text-[#56616B] text-sm font-medium">Available Balance</p>
           <p className="text-start text-[#131316] text-3xl not-italic font-bold">USD 120,500.00</p>
         </div>
-        <button className="flex justify-center items-center py-3.5 px-7 text-sm not-italic font-semibold leading-4 gap-2 self-stretch rounded-3xl bg-[#131316] text-white">Withdraw</button>
+        <button className="flex justify-center items-center p-2 md:p-3 lg:p-4 text-sm not-italic font-semibold leading-4 gap-2 self-stretch rounded-full bg-[#131316] text-white">Withdraw</button>
       </div>
       <div
         style={{

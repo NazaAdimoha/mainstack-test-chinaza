@@ -37,7 +37,7 @@ export const getUser = async () => {
 //Get wallet endpoint
 export const getWallet = async () => {
     const response = await api.get("wallet");
-    return response.data;
+    return response;
 }
 
 //Get transactions endpoint

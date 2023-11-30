@@ -8,7 +8,7 @@ import { navData } from "@/data/navData";
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-xl z-[100] w-full h-16 rounded-full">
+    <nav className="bg-white shadow-xl h-16 rounded-full">
       <div className="container px-2 py-2 mx-auto">
         <div className="flex items-center justify-between">
           <Link href="/">
