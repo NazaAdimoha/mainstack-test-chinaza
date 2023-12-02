@@ -30,20 +30,25 @@ const api = axios.create({
 
 //Get user endpoint
 export const getUser = async () => {
-    const response = await api.get("user");
-    return response.data;
+    try {
+        const response = await api.get("/user");
+        console.log("response", response.data);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 //Get wallet endpoint
-export const getWallet = async () => {
-    const response = await api.get("wallet");
-    return response;
+export const getWallet = () => {
+        return api.get("/wallet");
 }
 
 //Get transactions endpoint
 export const getTransactions = async () => {
     try {
-      const response = await api.get("transactions");
+      const response = await api.get("/transactions");
+    //   console.log("response", response);
       return response.data.map((transactionData: any) => new Transaction(transactionData));
     } catch (error) {
         console.error(error);   
