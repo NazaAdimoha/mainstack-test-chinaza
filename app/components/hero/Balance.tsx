@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Info from "../../../public/info.svg";
 import { useState } from "react";
-import { useFetchWallet } from "@/hooks/useFetch";
+
 import { formatAmount } from "@/utils/helpers";
+import { useFetchWallet } from "@/hooks/useFetchWallet";
 
 //mock API Data replica
 // {
