@@ -9,6 +9,7 @@ import SubFilter from "./SubFilter";
 import { formatAmount } from "@/utils/helpers";
 import Success from "../../../public/call_received.svg";
 import Failed from "../../../public/call_made.svg";
+import moment from "moment";
 
 const Filters = () => {
     const [transactions, setTransactions] = useState([]);
@@ -53,18 +54,23 @@ const Filters = () => {
         let filteredTransactions = transactions;
         if (startDate && endDate) {
             filteredTransactions = filteredTransactions.filter((transaction: TransactionType) => {
-                const transactionDate = new Date(transaction.date);
+                const transactionDate = moment(transaction.date).format("YYYY-MM-DD");
+                console.log("transactionDate", transactionDate)
                 return transactionDate >= startDate && transactionDate <= endDate;
             });
+            console.log("333", filteredTransactions);
         }
         if (status) {
             filteredTransactions = filteredTransactions.filter((transaction: TransactionType) => transaction.status === status);
+            console.log("000", filteredTransactions);
         }
         if (type) {
             filteredTransactions = filteredTransactions.filter((transaction: TransactionType) => transaction.type === type);
+            console.log("***", filteredTransactions);
         }
+    
         setFilteredTransactions(filteredTransactions);
-        setFilters(filters);
+        // setFilters(filters);
         console.log("filteredTransactions", filteredTransactions);
     };
     return (
@@ -92,7 +98,7 @@ const Filters = () => {
 
             {
                 transactionIsLoading ? "Fetching Transactions..." : (
-                    transactions?.map((transaction: TransactionType, index) => (
+                    filteredTransactions?.map((transaction: TransactionType, index) => (
                         <div key={index} className="flex justify-between pb-3 items-center gap-6 mt-4">
                         <div className="flex items-center gap-3 ">
                             <div>
@@ -106,7 +112,7 @@ const Filters = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex flex-col items-start gap-2">
                                 <p>
                                     {transaction?.metadata?.product_name}
                                 </p>
@@ -116,17 +122,12 @@ const Filters = () => {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="flex flex-col items-start gap-2">
                             <p>
                                 USD {formatAmount(transaction?.amount)}
                             </p>
                             <p>
-                                {new Date(transaction.date).toLocaleDateString("en-US", {
-                                    year: "numeric",
-                                    month: "short",
-                                    day: "numeric",
-                                })
-                                }
+                                {moment(transaction.date).format("DD MMM YYYY")}
                             </p>
                         </div>
                     </div>
