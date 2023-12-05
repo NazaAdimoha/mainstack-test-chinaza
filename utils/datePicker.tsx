@@ -30,7 +30,7 @@ const DateRangePicker = ({ onDateRangeChange, placeholder }: any) => {
           <div className="flex items-center justify-end">
             <input
               value={startDate && endDate ? `${startDate} - ${endDate}` : ""}
-              className="w-40 border-none bg-transparent text-gray-700 placeholder-gray-500"
+              className="w-full border-none bg-transparent text-gray-700 placeholder-gray-500"
               onClick={() => {}}
               placeholder={placeholder}
             />

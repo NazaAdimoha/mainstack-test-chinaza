@@ -101,8 +101,10 @@ export const useFetchTransactions = (setTransactions:Dispatch<SetStateAction<any
         refetchOnWindowFocus: false,
         onSuccess: (data) => {
             const result = data as TransactionType[];
-            console.log("result", result);
-            setTransactions(result.map((transactionData: any) => (transactionData)));
+            // console.log("result", result);
+            const mappedResult = result.map((transactionData: any) => (transactionData));
+            // console.log("mappedResult", mappedResult);
+            setTransactions(mappedResult);
         },
     });
     return {isLoading, isError, error};

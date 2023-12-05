@@ -52,7 +52,15 @@ const LineChart = () => {
               type: "line",
               data: {
                 labels: transactions.map((transaction) =>
-                  format(transaction.date, "MMM-dd-yyyy")
+                  // format(transaction.date, "MMM-dd-yyyy")
+                  new Date(transaction.date).toLocaleDateString(
+                    "en-US",
+                    {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    }
+                  )
                 ),
                 datasets: [
                   {
