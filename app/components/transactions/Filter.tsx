@@ -113,20 +113,20 @@ const Filters = () => {
                                 )}
                             </div>
                             <div className="flex flex-col items-start gap-2">
-                                <p>
+                                <p className="text-base text-[#131316] not-italic font-medium leading-6 tracking-widest"> 
                                     {transaction?.metadata?.product_name}
                                 </p>
-                                <p>
+                                <p className="text-sm text-[#131316] not-italic font-medium leading-4 tracking-widest">
                                     {transaction?.type}
                                 </p>
                             </div>
                         </div>
 
                         <div className="flex flex-col items-start gap-2">
-                            <p>
+                            <p className="text-[#131316] text-right not-italic font-bold text-base leading-6">
                                 USD {formatAmount(transaction?.amount)}
                             </p>
-                            <p>
+                            <p className="text-[#56616B] text-sm not-italic font-medium leading-4">
                                 {moment(transaction.date).format("DD MMM YYYY")}
                             </p>
                         </div>
