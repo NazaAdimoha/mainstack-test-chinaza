@@ -112,12 +112,12 @@ const LineChart = () => {
 
   return (
     <section >
-      <div className="flex justify-start items-center gap-6 lg:gap-12 mb-7">
+      <div className="flex justify-start items-center gap-6 lg:gap-16 mb-7">
         <div className="flex flex-col items-start justify-center gap-2">
           <p className="text-start text-[#56616B] text-sm font-medium">Available Balance</p>
           <p className="text-start text-[#131316] text-3xl not-italic font-bold">USD <span>{wallet?.balance}</span></p>
         </div>
-        <button className="flex justify-center items-center p-2 md:p-3 lg:p-4 text-sm not-italic font-semibold leading-4 gap-2 self-stretch rounded-full bg-[#131316] text-white">Withdraw</button>
+        <button className="flex justify-center items-center p-2 md:p-3 lg:py-1 lg:px-4 text-sm lg:text-xs not-italic font-semibold leading-4 gap-2 self-stretch rounded-3xl bg-[#131316] text-white">Withdraw</button>
       </div>
       <div
         style={{

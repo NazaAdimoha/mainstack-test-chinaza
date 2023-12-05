@@ -1,9 +1,19 @@
-
+"use client";
 import Image from "next/image";
 import Download from "../../../public/download.svg";
 import Expand from "../../../public/expand_more.svg";
+import { useState } from "react";
+import { useFetchTransactions } from "@/hooks/useFetch";
 
 const Filters = () => {
+    const [transactions, setTransactions] = useState([]);
+    const [filteredTransactions, setFilteredTransactions] = useState([]);
+
+    //integrate useFetchTransactions hook here
+     const {isLoading: transactionIsLoading, isError, error: error} = useFetchTransactions(
+        setTransactions
+     );
+     console.log("-----", transactions);
     return (
         <>
             <div className="flex justify-between pb-3 items-center gap-6 border-b-2 outline-0">
@@ -32,10 +42,25 @@ const Filters = () => {
                         <p>Rey cash </p>
                     </div>
                 </div>
-                <div>Gadamn</div>
+                <div>
+                    <p>USD 600</p>
+                    <p>Date</p>
+                </div>
             </div>   
         </>
     ) 
 }
 
 export default Filters;
+
+{/* <div className="flex items-center gap-3 ">
+<div>Bro</div>
+<div className="flex items-center gap-2">
+    <p>Psychology</p>
+    <p>Rey cash </p>
+</div>
+</div>
+<div>
+<p>USD 600</p>
+<p>Date</p>
+</div> */}

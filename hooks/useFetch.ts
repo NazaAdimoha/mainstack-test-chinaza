@@ -1,5 +1,6 @@
 
 import { getTransactions } from "@/app/services/api";
+import { TransactionType } from "@/app/types/transactionType";
 import { formatAmount } from "@/utils/helpers";
 import { Dispatch, SetStateAction } from "react";
 import { useQuery } from "react-query";
@@ -95,13 +96,13 @@ import { useQuery } from "react-query";
 //     }
 // ]
 
-export const useFetchTransactions = (setTransaction:Dispatch<SetStateAction<any>>) => {
+export const useFetchTransactions = (setTransactions:Dispatch<SetStateAction<any>>) => {
     const {isLoading, isError, error} = useQuery("transactions", getTransactions, {
         refetchOnWindowFocus: false,
         onSuccess: (data) => {
-            const result = data.data;
+            const result = data as TransactionType[];
             console.log("result", result);
-            setTransaction(result.map((transactionData: any) => (transactionData)));
+            setTransactions(result.map((transactionData: any) => (transactionData)));
         },
     });
     return {isLoading, isError, error};
